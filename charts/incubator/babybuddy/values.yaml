@@ -39,3 +39,29 @@ persistence:
   config:
     enabled: false
     mountPath: /config
+
+# -- Enable and configure mariadb database subchart under this key.
+#    See [mariadb chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/mariadb) for more details.
+# @default -- See values.yaml
+mariadb:
+  enabled: false
+  #architecture: standalone
+  #auth:
+  #  database: babybuddy
+  #  username: babybuddy
+  #  password: babybuddy
+  #primary:
+  #  persistence:
+  #    enabled: false
+
+# -- Enable and configure postgresql subchart under this key.
+#    See [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql) for more details.
+# @default -- See values.yaml
+postgresql:
+  enabled: false
+  #auth:
+  #  username: babybuddy
+  #  password: babybuddy
+  #  database: babybuddy
+  # persistence:
+  #   enabled: false
