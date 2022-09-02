@@ -1,0 +1,56 @@
+---
+apiVersion: v2
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+# It is recommended to use it with quotes.
+appVersion: 3.0.9
+description: A Helm chart for Kubernetes
+name: pydio-cells
+
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.0.1-dev01
+
+# A chart can be either an 'application' or a 'library' chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+type: application
+
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - pydio-cells
+  - pydio
+#home: https://github.com/k8s-at-home/charts/tree/master/charts/incubator/
+#icon: https://github.com/babybuddy/babybyddy/blob/master/babybuddy/static_src/logo/icon.png?raw=true
+sources:
+  - https://github.com/pydio/cells
+  - https://hub.docker.com/r/pydio/cells
+maintainers:
+  - name: xe2 helmcharts
+    email: helm@xe2.io
+dependencies:
+  - name: common
+    repository: https://library-charts.k8s-at-home.com
+    version: 4.4.2
+  - name: mariadb
+    version: 11.1.1
+    repository: https://charts.bitnami.com/bitnami
+    condition: mariadb.enabled
+  #- name: postgresql
+    #version: 11.6.19
+    #repository: https://charts.bitnami.com/bitnami
+    #condition: postgresql.enabled
+#annotations:
+#  artifacthub.io/changes: |-
+#    - kind: changed
+#      description: Added mariadb and postgresql chart dependencies
+#    - kind: changed
+#      description: Upgraded `common` chart dependency to version 4.4.2
